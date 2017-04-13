@@ -64,7 +64,12 @@ app.get('/api', function apiIndex(req, res) {
       {
         method: "GET",
         path: "/api/destinations",
-        description: "Destinations I want to explore"
+        description: "Show all destinations I want to explore"
+      },
+      {
+        method: "GET",
+        path: "/api/destinations/:city",
+        description: "Show a destination I want to explore"
       }
     ]
   })
@@ -88,40 +93,17 @@ app.get('/api/profile', function apiProfile(req, res) {
 
 // My destination resource index/find All
 app.get('/api/destinations', function apiDest(req, res) {
-  res.json([
-    {
-      city: 'Dubrovnik',
-      country: 'Croatia',
-      duration: '5 days',
-      photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg'
-    },
-    {
-      city: 'London',
-      country: 'United Kingdom',
-      duration: '5 days',
-      photo: 'http://www.londonhigher.ac.uk/fileadmin/resources2/images/Home/london.jpg'
-    },
-    {
-      city: 'Singapore',
-      country: 'Singapore',
-      duration: '5 days',
-      photo: 'http://www.fourseasons.com/content/dam/fourseasons_magazine/SIN/marina-bay-sunset-singapore-1000x563.jpg/jcr:content/renditions/original'
-    },
-    {
-      city: 'Reykjavik',
-      country: 'Iceland',
-      duration: '7 days',
-      photo: 'http://www.travelzoo.com/uk/blog/wp-content/uploads/2015/06/tzoo.blog_.northern_lights_reykjavik.031815-960x480.jpg'
-    }]
-  );
+  res.json(db.Destination.find());
 })
 
-// show, create update, delete
+
+// show (id), create, update, delete
+
+// My destination resource show/ Findone
+app.get('/api/destinations/:city', function getCity(req, res) {
+  res.json([
 
 
-
-
-// // This didn't work?
 // app.get('/api/destinations', function apiDestinations(req, res) {
 //   db.Destinations.find( function(err, dest) {
 //     if (err) {
