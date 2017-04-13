@@ -99,7 +99,7 @@ app.get('/api/profile', function apiProfile(req, res) {
 })
 
 app.get('/api/destinations', function apiDestinations(req, res) {
-  res.json(db.destinations)
+  res.json(db.Destinations)
 })
 
 
