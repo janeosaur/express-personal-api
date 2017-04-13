@@ -79,34 +79,46 @@ app.get('/api/profile', function apiProfile(req, res) {
     personalSiteLink: "https://janeosaur.github.io/",
     currentCity: "San Francisco",
     pets: [
-      {
-        name: "Collin",
-        type: "Dog",
-        breed: "Yorkie-Poodle"
-      },
-      {
-        name: "Jinx",
-        type: "Cat",
-        breed: "Burmese"
-      },
-      {
-        name: "Sammy",
-        type: "Cat",
-        breed: "Tabby"
-      }
-    ]
+      {name: "Collin", type: "Dog", breed: "Yorkie-Poodle"},
+      {name: "Jinx", type: "Cat", breed: "Burmese"},
+      {name: "Sammy", type: "Cat", breed: "Tabby"} ]
   })
 })
 
+
+// My destination resource index/find All
 app.get('/api/destinations', function apiDest(req, res) {
-  res.json({
-    description: 'These are places I would love to explore!',
-    city: 'Dubrovnik',
-    country: 'Croatia',
-    duration: '7 days',
-    photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg'
-  });
+  res.json([
+    {
+      city: 'Dubrovnik',
+      country: 'Croatia',
+      duration: '5 days',
+      photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg'
+    },
+    {
+      city: 'London',
+      country: 'United Kingdom',
+      duration: '5 days',
+      photo: 'http://www.londonhigher.ac.uk/fileadmin/resources2/images/Home/london.jpg'
+    },
+    {
+      city: 'Singapore',
+      country: 'Singapore',
+      duration: '5 days',
+      photo: 'http://www.fourseasons.com/content/dam/fourseasons_magazine/SIN/marina-bay-sunset-singapore-1000x563.jpg/jcr:content/renditions/original'
+    },
+    {
+      city: 'Reykjavik',
+      country: 'Iceland',
+      duration: '7 days',
+      photo: 'http://www.travelzoo.com/uk/blog/wp-content/uploads/2015/06/tzoo.blog_.northern_lights_reykjavik.031815-960x480.jpg'
+    }]
+  );
 })
+
+// show, create update, delete
+
+
 
 
 // // This didn't work?
