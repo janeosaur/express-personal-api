@@ -62,7 +62,7 @@ app.get('/api', function apiIndex(req, res) {
         description: "Find out more about me"
       },
       {
-        method: "POST",
+        method: "GET",
         path: "/api/destinations",
         description: "Destinations I want to explore"
       }
@@ -99,7 +99,14 @@ app.get('/api/profile', function apiProfile(req, res) {
 })
 
 app.get('/api/destinations', function apiDestinations(req, res) {
-  res.json(db.Destinations)
+  // res.json(db.Destinations) -- didn't work
+  db.Destinations.find( function(err, desti) {
+    if (err) {
+      console.log('index error: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(dest);
+  });
 })
 
 
