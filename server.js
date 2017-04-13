@@ -97,22 +97,17 @@ app.get('/api/destinations', function apiDest(req, res) {
 })
 
 
-// show (id), create, update, delete
-
 // My destination resource show/ Findone
 app.get('/api/destinations/:city', function getCity(req, res) {
-  res.json([
+  var destcity = req.params.city;
+  db.Destinations.findOneById(city, function (err, foundCity) {
+    res.json(foundCity)
+  });
+})
 
 
-// app.get('/api/destinations', function apiDestinations(req, res) {
-//   db.Destinations.find( function(err, dest) {
-//     if (err) {
-//       console.log('index error: ' + err);
-//       res.sendStatus(500);
-//     }
-//     res.json(dest);
-//   });
-// })
+// create, update, delete
+
 
 
 
