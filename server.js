@@ -102,8 +102,8 @@ app.get('/api/destinations', function apiDest(req, res) {
   res.json({
     description: 'These are places I would love to explore!',
     city: 'Dubrovnik',
-    country: 'Croatia'
-    duration: '7 days'
+    country: 'Croatia',
+    duration: '7 days',
     photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg'
   });
 })
