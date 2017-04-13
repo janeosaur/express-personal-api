@@ -98,16 +98,40 @@ app.get('/api/profile', function apiProfile(req, res) {
   })
 })
 
-app.get('/api/destinations', function apiDestinations(req, res) {
-  // res.json(db.Destinations) -- didn't work
-  db.Destinations.find( function(err, dest) {
-    if (err) {
-      console.log('index error: ' + err);
-      res.sendStatus(500);
+app.get('/api/destinations', function apiProfile(req, res) {
+  res.json(
+    {
+      city: 'Dubrovnik',
+      country: 'Croatia',
+      duration: '7 days',
+      photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg',
+    },
+    {
+      city: 'Singapore',
+      country: 'Singapore',
+      duration: '4 days',
+      photo: 'http://www.dulichsingapore.com/upload/product/630160361335.jpg'
+    },
+    {
+      city: 'Tokyo',
+      country: 'Japan',
+      duration: '7 days',
+      photo: 'http://www.maryville.edu/globaled/files/2012/09/file3041299869591.png'
     }
-    res.json(dest);
-  });
+  );
 })
+
+
+// // This didn't work?
+// app.get('/api/destinations', function apiDestinations(req, res) {
+//   db.Destinations.find( function(err, dest) {
+//     if (err) {
+//       console.log('index error: ' + err);
+//       res.sendStatus(500);
+//     }
+//     res.json(dest);
+//   });
+// })
 
 
 
