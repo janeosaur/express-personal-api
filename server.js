@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models')
 
 /**********
  * ROUTES *
@@ -98,7 +98,9 @@ app.get('/api/profile', function apiProfile(req, res) {
   })
 })
 
-//
+app.get('/api/destinations', function apiDestinations(req, res) {
+  res.json(db.destinations)
+})
 
 
 
