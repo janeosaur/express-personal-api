@@ -98,8 +98,8 @@ app.get('/api/profile', function apiProfile(req, res) {
   })
 })
 
-app.get('/api/destinations', function apiProfile(req, res) {
-  res.json(
+app.get('/api/destinations', function apiDest(req, res) {
+  res.json({
     {
       city: 'Dubrovnik',
       country: 'Croatia',
@@ -118,7 +118,7 @@ app.get('/api/destinations', function apiProfile(req, res) {
       duration: '7 days',
       photo: 'http://www.maryville.edu/globaled/files/2012/09/file3041299869591.png'
     }
-  );
+  });
 })
 
 
