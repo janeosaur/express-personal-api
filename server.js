@@ -46,17 +46,61 @@ app.get('/api', function apiIndex(req, res) {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
   // It would be seriously overkill to save any of this to your database.
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
+    woopsIForgotToDocumentAllMyEndpoints: false,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express-personal-api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentationUrl: "https://github.com/janeosaur/express-personal-api/blob/master/README.md", // CHANGE ME?
+    baseUrl: "https://stormy-sands-43266.herokuapp.com/",
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {
+        method: "GET",
+        path: "/api",
+        description: "Describes all available endpoints"
+      },
+      {
+        method: "GET",
+        path: "/api/profile",
+        description: "Find out more about me"
+      },
+      {
+        method: "POST",
+        path: "/api/destinations",
+        description: "Destinations I want to explore"
+      }
     ]
   })
 });
+
+app.get('/api/profile', function apiProfile(req, res) {
+  res.json({
+    name: "Jane Wie",
+    githubUsername: "janeosaur",
+    githubLink: "https://github.com/janeosaur/",
+    githubProfileImage: "https://avatars3.githubusercontent.com/u/26048250?v=3&s=460",
+    personalSiteLink: "https://janeosaur.github.io/",
+    currentCity: "San Francisco",
+    pets: [
+      {
+        name: "Collin",
+        type: "Dog",
+        breed: "Yorkie-Poodle"
+      },
+      {
+        name: "Jinx",
+        type: "Cat",
+        breed: "Burmese"
+      },
+      {
+        name: "Sammy",
+        type: "Cat",
+        breed: "Tabby"
+      }
+    ]
+  })
+})
+
+//
+
+
 
 /**********
  * SERVER *
