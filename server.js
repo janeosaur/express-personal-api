@@ -98,7 +98,7 @@ app.get('/api/profile', function apiProfile(req, res) {
   })
 })
 
-app.get('/api/destinations', function apiDest(req, res) {
+app.post('/api/destinations', function apiDest(req, res) {
   res.json({
     description: 'These are places I would love to explore!',
     city: 'Dubrovnik',
