@@ -100,24 +100,11 @@ app.get('/api/profile', function apiProfile(req, res) {
 
 app.get('/api/destinations', function apiDest(req, res) {
   res.json({
-    {
-      city: 'Dubrovnik',
-      country: 'Croatia',
-      duration: '7 days',
-      photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg',
-    },
-    {
-      city: 'Singapore',
-      country: 'Singapore',
-      duration: '4 days',
-      photo: 'http://www.dulichsingapore.com/upload/product/630160361335.jpg'
-    },
-    {
-      city: 'Tokyo',
-      country: 'Japan',
-      duration: '7 days',
-      photo: 'http://www.maryville.edu/globaled/files/2012/09/file3041299869591.png'
-    }
+    description: 'These are places I would love to explore!',
+    city: 'Dubrovnik',
+    country: 'Croatia'
+    duration: '7 days'
+    photo: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Croatia/croatia-summerholidays-hvar-xlarge.jpg'
   });
 })
 
