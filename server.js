@@ -83,7 +83,7 @@ app.get('/api', function apiIndex(req, res) {
       },
       {
         method: "PUT",
-        path: "api/destinations/:city/:duration",
+        path: "/api/destinations/:city/:duration",
         description: "Update a destination's duration"
       }
     ]
