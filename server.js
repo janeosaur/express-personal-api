@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-var db = require('./models')
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -93,14 +93,16 @@ app.get('/api/profile', function apiProfile(req, res) {
 
 // My destination resource index/find All
 app.get('/api/destinations', function apiDest(req, res) {
-  res.json(db.Destination.find());
+  db.Destinations.find({}, function(err, allDestinations) {
+    res.json({allDestinations})
+  })
 })
 
 
 // My destination resource show/ Findone
 app.get('/api/destinations/:city', function getCity(req, res) {
   var destcity = req.params.city;
-  db.Destinations.findOneById(city, function (err, foundCity) {
+  db.Destinations.findOneById(destcity, function (err, foundCity) {
     res.json(foundCity)
   });
 })

@@ -5,4 +5,5 @@ mongoose.Promise = global.Promise;
 
 // module.exports.Campsite = require("./campsite.js.example");
 
-module.exports('./destinations.js')
+module.exports.Destinations = require('./destinations.js')
+// module.exports = Destinations 
