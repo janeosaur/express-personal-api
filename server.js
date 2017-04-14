@@ -99,10 +99,10 @@ app.get('/api/destinations', function apiDest(req, res) {
 })
 
 
-// My destination resource show/ Findone
+// My destination resource show/findOne
 app.get('/api/destinations/:city', function getCity(req, res) {
   var destcity = req.params.city;
-  db.Destinations.findOneById(destcity, function (err, foundCity) {
+  db.Destinations.findOne({city: req.params.city}, function (err, foundCity) {
     res.json(foundCity)
   });
 })
