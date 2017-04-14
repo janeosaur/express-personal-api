@@ -70,6 +70,21 @@ app.get('/api', function apiIndex(req, res) {
         method: "GET",
         path: "/api/destinations/:city",
         description: "Show a destination I want to explore"
+      },
+      {
+        method: "POST",
+        path: "/api/destinations",
+        description: "Add a new destination"
+      },
+      {
+        method: "DELETE",
+        path: "/api/destinations/:city",
+        description: "Delete a destination"
+      },
+      {
+        method: "PUT",
+        path: "api/destinations/:city/:duration",
+        description: "Update a destination's duration"
       }
     ]
   })
@@ -99,7 +114,7 @@ app.get('/api/destinations', function apiDest(req, res) {
 })
 
 
-// My destination resource show/findOne
+// My destination resource show/findOne -- doesn't show up on heroku?
 app.get('/api/destinations/:city', function getCity(req, res) {
   var destcity = req.params.city;
   db.Destinations.findOne({city: req.params.city}, function (err, foundCity) {
@@ -108,7 +123,35 @@ app.get('/api/destinations/:city', function getCity(req, res) {
 })
 
 
-// create, update, delete
+// create -- how do i test if this works?
+app.post('/api/destinations', function createDest(req, res) {
+  var newDest = {city:'Moher', country: 'Ireland', duration: '4 days', photo: 'https://s-media-cache-ak0.pinimg.com/originals/51/85/9e/51859ee81ea856797981c07181725165.jpg'};
+  db.Destinations.create(newDest, function (err, newDestination) {
+    res.json(newDestination)
+  })
+})
+
+// update -- unsure about this
+app.put('api/destinations/:city/:duration', function updateDest(req, res) {
+  var city = req.params.city;
+  var duration = req.params.duration;
+  db.Destinations.findOne({city: city}, function (err, findCity) {
+    findCity.duration = duration; //
+    findCity.save(function (err, savedCity) {
+      res.json(foundDuration)
+    })
+  })
+})
+
+
+
+// delete -- how do i test if this works?
+app.delete('/api/destinations/:city', function deleteDest(req, res) {
+  var destCity = req.params.city;
+  db.Destinations.findOneAndRemove({city: req.params.city}, function (err, deletedDest) {
+    res.json(deletedDest);
+  })
+})
 
 
 
